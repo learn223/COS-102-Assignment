@@ -1,0 +1,80 @@
+# Grading System
+# By Obed Godspower Udem
+# Cybersecurity Department
+# 2023924002
+
+START
+ 
+    PRINT “Welcome to the Obed Grading System”
+ 
+    FUNCTION get_valid_score():
+        LOOP indefinitely:
+            PROMPT user for “Enter score (0-100): “
+            READ score_input
+            TRY to convert score_input to a floating-point number:
+                IF score is between 0 and 100 (inclusive):
+                    RETURN score
+                ELSE:
+                    PRINT “Error: Score must be between 0 and 100.”
+            CATCH ValueError:
+                PRINT “Error: Please enter a valid number.”
+ 
+    FUNCTION calculate_grade(score):
+        IF score is 70 or greater:
+            RETURN “A”
+        ELSE IF score is 60 or greater:
+            RETURN “B”
+        ELSE IF score is 50 or greater:
+            RETURN “C”
+        ELSE IF score is 45 or greater:
+            RETURN “D”
+        ELSE IF score is 40 or greater:
+            RETURN “E”
+        ELSE:
+            RETURN “F”
+ 
+    PROMPT user for “What is your name? “
+    READ name
+    IF name is empty:
+        SET name to “Student”
+ 
+    PRINT “Hello, [name]! Enter your subjects and scores below.”
+ 
+    CREATE an empty list called ‘results’
+ 
+    LOOP indefinitely (to allow multiple subject entries):
+        PROMPT user for “Enter subject name: “
+        READ subject
+        IF subject is empty:
+            PRINT “Error: Subject name cannot be empty.”
+            CONTINUE to the next iteration of the loop (skip current subject)
+ 
+        CALL get_valid_score() and store the returned value in ‘score’
+        CALL calculate_grade(score) and store the returned value in ‘grade’
+ 
+        ADD a dictionary/object {subject: subject, score: score, grade: grade} to ‘results’
+ 
+        PRINT “[subject]: [score] ([grade])”
+ 
+        PROMPT user for “Add another subject? (yes/no): “
+        READ cont_input
+        CONVERT cont_input to lowercase
+        IF cont_input is “no”:
+            BREAK out of the loop (stop adding subjects)
+ 
+    IF ‘results’ list is NOT empty:
+        PRINT “Grade Summary for [name]:”
+        PRINT a separator line (“- - - - -“)
+        PRINT formatted headers: “Subject”, “Score”, “Grade”
+        PRINT a separator line (“- - - - -“)
+ 
+        FOR each item (subject, score, grade) in ‘results’:
+            PRINT formatted values: “[subject]”, “[score]”, “[grade]”
+ 
+        PRINT a separator line (“- - - - -“)
+    ELSE:
+        PRINT “No grades entered.”
+ 
+    PRINT “Thank you for using the Obed Grading System!”
+ 
+END
