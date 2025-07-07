@@ -1,0 +1,21 @@
+# Pseudocode for Grading System
+# By Obed Godspower Udem
+# Dept: Cybersecurity
+# Reg. No: 2023924002
+
+START
+    INPUT number
+    if number is 70 to 100
+        OUTPUT "A"
+    elif number is 60 to 69
+        OUTPUT "B"
+    elif number is 50 to 59
+        OUTPUT "C"
+    elif number is 45 to 49
+        OUTPUT "D"
+    elif number is 40 to 44
+        OUTPUT "E"
+    else:
+        OUTPUT "F"
+    END if
+END
